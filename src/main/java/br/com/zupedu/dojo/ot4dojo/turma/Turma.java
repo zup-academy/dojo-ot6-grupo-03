@@ -29,6 +29,10 @@ public class Turma {
         this.dataFim = dataFim;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }

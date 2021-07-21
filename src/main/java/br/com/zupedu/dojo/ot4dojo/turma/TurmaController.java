@@ -23,8 +23,8 @@ public class TurmaController {
         boolean existeNome  = turmaRepository.existsByNome(turmaRequest.getNome());
 
         if(!existeNome) {
-            turmaRepository.save(turma);
-            return ResponseEntity.created(null).build();
+            Turma turmaresponse = turmaRepository.save(turma);
+            return ResponseEntity.created(null).body(turmaresponse);
         }
         return ResponseEntity.notFound().build();
     }
