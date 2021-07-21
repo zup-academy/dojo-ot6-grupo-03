@@ -19,12 +19,14 @@ public class TurmaController {
     @Transactional
     public ResponseEntity<?> criarTurma(@Valid @RequestBody TurmaRequest turmaRequest){
 
-        Turma turma = turmaRequest.toModel(turmaRequest, turmaRepository);
-        
-     boolean existeNome  = turmaRepository.existsByNome(turmaRequest.getNome());
+        Turma turma = turmaRequest.toModel();
+        boolean existeNome  = turmaRepository.existsByNome(turmaRequest.getNome());
 
-        Turma turma = turmaRepository.save(turmaRequest);
-
+        if(!existeNome) {
+            turmaRepository.save(turma);
+            return ResponseEntity.created(null).build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }

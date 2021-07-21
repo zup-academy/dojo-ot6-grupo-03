@@ -10,8 +10,6 @@ public class TurmaRequest {
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;
     
-    
-
     public String getNome() {
 		return nome;
 	}
@@ -33,9 +31,7 @@ public class TurmaRequest {
         this.dataFim = dataFim;
     }
 
-    public Turma toModel(TurmaRequest turmaRequest, TurmaRepository turmaRepository) {
-
-        
-
+    public Turma toModel() {
+       return new Turma(this.nome, this.dataInicio, this.dataFim);
     }
 }
