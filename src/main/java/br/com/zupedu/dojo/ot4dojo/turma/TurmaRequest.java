@@ -19,4 +19,11 @@ public class TurmaRequest {
         this.dataFim = dataFim;
     }
 
+    public Turma toModel(TurmaRequest turmaRequest, TurmaRepository turmaRepository) {
+
+        Turma turma = turmaRepository.findByNome(turmaRequest.nome).get();
+
+        Turma turma = turmaRepository.save(turmaRequest);
+
+    }
 }
