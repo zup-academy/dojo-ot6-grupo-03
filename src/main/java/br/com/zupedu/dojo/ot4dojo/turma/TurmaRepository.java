@@ -8,4 +8,6 @@ public interface TurmaRepository extends JpaRepository<Turma, Integer> {
 
 
     Optional<Turma> findByNome(String nome);
+
+	Boolean existsByNome(String nome);
 }

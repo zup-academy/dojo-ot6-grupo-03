@@ -9,8 +9,22 @@ public class TurmaRequest {
     private String nome;
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;
+    
+    
 
-    public TurmaRequest() {
+    public String getNome() {
+		return nome;
+	}
+
+	public LocalDateTime getDataInicio() {
+		return dataInicio;
+	}
+
+	public LocalDateTime getDataFim() {
+		return dataFim;
+	}
+
+	public TurmaRequest() {
     }
 
     public TurmaRequest(String nome, LocalDateTime dataInicio, LocalDateTime dataFim) {
@@ -21,9 +35,7 @@ public class TurmaRequest {
 
     public Turma toModel(TurmaRequest turmaRequest, TurmaRepository turmaRepository) {
 
-        Turma turma = turmaRepository.findByNome(turmaRequest.nome).get();
-
-        Turma turma = turmaRepository.save(turmaRequest);
+        
 
     }
 }
